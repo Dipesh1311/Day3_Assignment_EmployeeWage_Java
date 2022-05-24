@@ -6,7 +6,9 @@ public class employeeWage {
 
     static final int EMP_WAGE_PER_HOUR = 20;
     static final int EMP_FULL_DAY_HOUR = 8;
-    static final int EMP_PART_TIME_HOUR = 4;
+    static final int EMP_HALF_DAY_HOUR = 4;
+    static final int FULL_TIME=1;
+    static final int HALF_TIME=2;
 
     static int DailyWage;
     static int HalfDayWage;
@@ -17,18 +19,19 @@ public class employeeWage {
        int EmpAttendance = a.nextInt(3);
        System.out.println(EmpAttendance);
 
-       if (EmpAttendance == 1) {
-           System.out.println("Employee is present");
-           DailyWage = EMP_WAGE_PER_HOUR * EMP_FULL_DAY_HOUR;
-           System.out.println("Employee daily wages :"+DailyWage);
-       }
-       else if (EmpAttendance == 2) {
-           System.out.println("Employee is on half day");
-           HalfDayWage = EMP_WAGE_PER_HOUR * EMP_PART_TIME_HOUR;
-           System.out.println("Employee half day wages :"+HalfDayWage);
-       }
-           else  {
-               System.out.println("Employee is absent");
+        switch (EmpAttendance) {
+            case FULL_TIME:
+                System.out.println("Employee is present for full day");
+                DailyWage = EMP_WAGE_PER_HOUR * EMP_FULL_DAY_HOUR;
+                System.out.println("Employee Daily Wage is : " + DailyWage);
+                break;
+            case HALF_TIME:
+                System.out.println("Employee is Present for half day");
+                HalfDayWage = EMP_WAGE_PER_HOUR * EMP_HALF_DAY_HOUR;
+                System.out.println("Employee Daily wage is : " + HalfDayWage);
+                break;
+            default:
+                System.out.println("Employee is Absent");
        }
     }
 }
